@@ -1,0 +1,22 @@
+{
+  "name": "email-survey-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Burlesque1/Email-Survey-Generator.git"
+  },
+  "author": "Omelet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Burlesque1/Email-Survey-Generator/issues"
+  },
+  "homepage": "https://github.com/Burlesque1/Email-Survey-Generator#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
