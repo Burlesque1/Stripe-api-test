@@ -5,10 +5,15 @@ module.exports = app => {
     '/',
     passport.authenticate('google', {
       scope: ['profile', 'email']
-    })
+    }), (req, res) => {
+      res.send({ gg: "gg"})
+    }
   );
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+    res.send({ dd: "gg"})
+  });
+
 
   app.get('/api/logout', (req, res) => {
     req.logout(); // this is from passportJS not expressJS, maybe done by middleware
