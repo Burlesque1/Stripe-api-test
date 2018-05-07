@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User');
-require('./services/passport');
+require('./services/passport'); // authentication flow 
 
 mongoose.connect(keys.mongoURI);
 
@@ -16,8 +16,8 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize()); // enable cookies
+app.use(passport.session());    // alter req and deserialize user
 
 require('./routes/authRoutes')(app);
 
