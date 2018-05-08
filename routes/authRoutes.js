@@ -8,14 +8,18 @@ module.exports = app => {
     })
   );
 
-  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-    res.send({ dd: "gg"})
-  });
-
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      console.log('???')
+      res.send('/surveys');
+    }
+  );
 
   app.get('/api/logout', (req, res) => {
-    req.logout(); // this is from passportJS not expressJS, maybe done by middleware
-    res.send(req.user);
+    req.logout();
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
