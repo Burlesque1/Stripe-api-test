@@ -15,17 +15,17 @@ class Header extends Component {
           </li>
         );
       default:
-        return [
-          <li key="1"><Payments/></li>,
-          <li key="2">
-            <a href="/api/logout">Logout</a>
-          </li>
-        ];
+      return [
+        <li key="1"><Payments /></li>,
+        <li key="3" style={{ margin: '0 10px' }}>
+          Credits: {this.props.auth.credits}
+        </li>,
+        <li key="2"><a href="/api/logout">Logout</a></li>
+      ];
     }
   }
 
   render() {
-    // console.log(this.props, 'df');
     return (
       <nav>
         <div className="nav-wrapper">
@@ -43,7 +43,6 @@ class Header extends Component {
 }
 
 function mapStateToProps({ auth }) {
-  // console.log(state, 'ff');
   return { auth };
 }
 

@@ -12,7 +12,7 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 // parse the body and assign to the req.body otherwise req.body will be undefined
-app.use(bodyParser);
+app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
