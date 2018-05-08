@@ -25,12 +25,14 @@
   },
   "homepage": "https://github.com/Burlesque1/Email-Survey-Generator#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "create-react-app": "^1.5.2",
     "express": "^4.16.3",
     "mongoose": "^5.0.17",
     "passport": "^0.3.2",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "stripe": "^5.8.0"
   }
 }
