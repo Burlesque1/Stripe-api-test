@@ -22,6 +22,7 @@ module.exports = app => {
     res.send('Thanks for voting!');
   });
 
+  // extract info from response
   app.post('/api/surveys/webhooks', (req, res) => {    
     const p = new Path('/api/surveys/:surveyId/:choice');
 
@@ -80,4 +81,15 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
+
+  app.delete('/api/surveys/delete/:id', requireLogin, async (req, res) => {
+    const _id = req.params.id;
+    try{
+      await Survey.find({ _id }).remove().exec();
+      // await Survey.findOneAndRemove({ _id });
+      res.send('sdfsdf');
+    } catch (e) {
+      res.status(404).send({})
+    }
+  })
 };
