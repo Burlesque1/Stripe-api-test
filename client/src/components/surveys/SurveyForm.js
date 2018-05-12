@@ -18,17 +18,6 @@ class SurveyForm extends Component {
         name={name}
       />
     ));
-    // return _.map(formFields, ({ label, name }) => {
-    //   return (
-    //     <Field
-    //       key={name}
-    //       component={SurveyField}
-    //       type="text"
-    //       label={label}
-    //       name={name}
-    //     />
-    //   );
-    // });
   }
 
   render() {
@@ -52,6 +41,7 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
+  errors.sender = validateEmails(values.sender || "");
   errors.recipients = validateEmails(values.recipients || "");
 
   _.each(formFields, ({ name }) => {
