@@ -1,18 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
+import * as mapDispatchToProps from '../../actions';
 
-const SurveySummary = (props) => (
+const SurveySummary = ({state, sortBy}) => (
   <div className="card darken-1">
     <div className="card-action">
-      <div> Total Surveys: {props.state.surveys.length} </div>
-      <button className="purple btn-flat right white-text">
-        <i className="material-icons">sort</i>
-      </button>
+      <div>
+        <button className="purple btn-flat white-text right" 
+        onClick={sortBy} >
+          <i className="material-icons">sort</i>
+        </button>
+      </div>
+      <div> Total Surveys: {state.surveys.length} </div>
     </div>
   </div>
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   state
-})
-export default connect(mapStateToProps)(SurveySummary);
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SurveySummary);

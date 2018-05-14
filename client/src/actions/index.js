@@ -2,7 +2,8 @@ import axios from "axios";
 import {
   FETCH_USER,
   FETCH_SURVEYS,
-  DELETE_SURVEY
+  DELETE_SURVEY,
+  SORT_ASC
 } from "./types";
 
 // redux-thunk returns a function which gets called with 'dispatch'
@@ -35,3 +36,7 @@ export const deleteSurvey = id => async dispatch => {
   await axios.delete(`/api/surveys/delete/${id}`);
   dispatch({ type: DELETE_SURVEY, id });
 };
+
+export const sortBy = () => dispatch => {
+  dispatch({ type: SORT_ASC});
+}

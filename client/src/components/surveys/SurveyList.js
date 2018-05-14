@@ -7,7 +7,9 @@ class SurveyList extends Component {
     this.props.fetchSurveys();
   }
   renderSurveys() {
-    return this.props.surveys.reverse().map(survey => {
+    let res = this.props.surveys;
+    res = res.reverse();
+    return res.map(survey => {
       return (
         <div className="card darken-1" key={survey._id}>
           <div className="card-content">
@@ -43,8 +45,8 @@ class SurveyList extends Component {
   }
 }
 
-function mapStateToProps({ surveys }) {
-  return { surveys };
+function mapStateToProps({ surveys, filter }) {
+  return { surveys, filter };
 }
 
 export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(
