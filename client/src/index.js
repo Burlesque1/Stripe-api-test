@@ -12,6 +12,7 @@ import reducers from "./reducers"; // that's what index.js inside reducers do
 import axios from 'axios';
 window.axios = axios;
 
+// initial state is optional
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(

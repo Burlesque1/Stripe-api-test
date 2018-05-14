@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSurveys, deleteSurvey } from "../../actions";
-import SurveySummary from "./SurveySummary";
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -38,8 +37,7 @@ class SurveyList extends Component {
   render() {
     return (
       <div>
-        <SurveySummary />
-        {this.renderSurveys()}
+        <div>{this.renderSurveys()}</div>
       </div>
     );
   }

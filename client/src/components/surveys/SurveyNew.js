@@ -32,7 +32,7 @@ class SurveyNew extends Component {
   }
 }
 
-// clear form when user click 'cancel'
+// clear form content when user click 'cancel'
 export default reduxForm({
   form: 'surveyForm'
 })(SurveyNew);
