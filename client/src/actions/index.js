@@ -39,4 +39,4 @@ export const deleteSurvey = id => async dispatch => {
 
 export const sortBy = () => dispatch => {
   dispatch({ type: SORT_ASC});
-}
+};
