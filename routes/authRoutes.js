@@ -3,14 +3,14 @@ const passport = require('passport');
 module.exports = app => {
   app.get(
     '/auth/google/',
-    passport.authenticate('google', {
+    passport.authenticate('google', { // forward request to google and request user info
       scope: ['profile', 'email']
     })
   );
 
   app.get(
     '/auth/google/callback',
-    passport.authenticate('google'),
+    passport.authenticate('google'), // exchange for token with code
     (req, res) => {
       res.redirect('/surveys');
     }
