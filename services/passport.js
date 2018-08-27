@@ -23,9 +23,9 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true // fix heroku https->http issue
     },
-    async (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => { // gets called after exchange token with code from google
       try{
-        console.log(accessToken, refreshToken, profile);
+        console.log(accessToken, refreshToken, profile);  //  refreshToken  used when accessToken expires
         const existingUser = await User.findOne({ googleId: profile.id });
         if(existingUser){
           return done(null, existingUser);
