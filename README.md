@@ -1,2 +1,2 @@
 # Email-Promotion-Platform 
-Deploy to emaily-river-87402
+Deploy to https://emaily-river-87402.herokuapp.com/
