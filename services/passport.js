@@ -1,11 +1,12 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const mongoose = require('mongoose');
-const keys = require('../config/keys');
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const mongoose = require("mongoose");
+const keys = require("../config/keys");
 
-const User = mongoose.model('users');
+const User = mongoose.model("users");
 
-passport.serializeUser((user, done) => { // user is exsitingUser below
+passport.serializeUser((user, done) => {
+  // user is exsitingUser below
   done(null, user.id);
 });
 
@@ -20,16 +21,17 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: "/auth/google/callback",
       proxy: true // fix heroku https->http issue
     },
-    async (accessToken, refreshToken, profile, done) => { // gets called after exchange token with code from google
-      try{
-        console.log(accessToken, refreshToken, profile);  //  refreshToken  used when accessToken expires
+    async (accessToken, refreshToken, profile, done) => {
+      // gets called after exchange token with code from google
+      try {
+        // console.log(accessToken, refreshToken, profile);  //  refreshToken  used when accessToken expires
         const existingUser = await User.findOne({ googleId: profile.id });
-        if(existingUser){
+        if (existingUser) {
           return done(null, existingUser);
-        } 
+        }
 
         const user = await new User({ googleId: profile.id }).save();
         done(null, user);
@@ -39,6 +41,3 @@ passport.use(
     }
   )
 );
-
-
-
